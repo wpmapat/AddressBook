@@ -22,9 +22,16 @@ namespace AddressBook
     /// </summary>
     public sealed partial class MainPage : Page
     {
+        DataAccess dataAccess = new DataAccess();
         public MainPage()
         {
             this.InitializeComponent();
+            this.DataContext = dataAccess.GetAllContacts();
+        }
+
+        private void Add_Click(object sender, RoutedEventArgs e)
+        {
+            this.Frame.Navigate(typeof(AddOrUpdateAContact));
         }
     }
 }

@@ -9,6 +9,23 @@
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
     <Grid>
-
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <GridView Name="Contacts" ItemsSource="{Binding}" Height="300" Width="1000" Margin="50">
+            <GridView.ItemTemplate>
+                <DataTemplate x:DataType="local:Contact">
+                    <StackPanel Orientation="Horizontal" Margin="2">
+                        <TextBlock Text="{x:Bind FirstName}" Width="95" Margin="2"/>
+                        <TextBlock Text="{x:Bind LastName}" Width="95" Margin="2"/>
+                        <TextBlock Text="{x:Bind Address}" Width="200" />
+                        <TextBlock Text="{x:Bind EmailAddress}" Width="180" />
+                        <TextBlock Text="{x:Bind PhNo}" Width="200" />
+                    </StackPanel>
+                </DataTemplate>
+            </GridView.ItemTemplate>
+        </GridView>
+        <Button  Grid.Row="1" Name="Add" Content="Add a new contact" HorizontalAlignment="Left" Click="Add_Click" Margin="24,24,24,0"/>
     </Grid>
 </Page>
